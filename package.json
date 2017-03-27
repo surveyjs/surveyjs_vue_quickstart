@@ -13,6 +13,7 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
   },
   "dependencies": {
+    "jquery": "^2.1.0",
     "bootstrap": "^3.3.7",
     "survey-vue": "^0.12.4",
     "surveyjs-editor": "^0.12.4",
