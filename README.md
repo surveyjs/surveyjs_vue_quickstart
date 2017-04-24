@@ -1,7 +1,7 @@
 # VueJS + SurveyJS/SurveyJS_Editor QuickStart Source
 [![Build Status][travis-badge]][travis-badge-url]
 
-This repository holds the source code of the [survey.io quickstart with React](https://surveyjs.io/) 
+This repository holds the source code of the [survey.io quickstart with Vue](https://surveyjs.io/) 
 and potentially a good starting point for your application.
 
 It's been extended with testing support so you can start writing tests immediately.
@@ -23,7 +23,7 @@ We recommend [nvm](https://github.com/creationix/nvm) for managing multiple vers
 
 Clone this repo into new project folder (e.g., `my-proj`).
 ```shell
-git clone https://github.com/surveyjs/surveyjs_react_quickstart my-proj
+git clone https://github.com/surveyjs/surveyjs_vue_quickstart my-proj
 cd my-proj
 ```
 
