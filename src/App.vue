@@ -1,11 +1,11 @@
 <template>
   <div id="app">
+    <img src="./assets/logo.png">
     <!-- If you want to show survey, uncomment the line below -->
     <!-- <survey :survey="survey"></survey> -->
     <!-- If you want to show survey editor, uncomment the line below -->
     <!-- <survey-editor></survey-editor> -->
     <survey-editor></survey-editor>
-    <img src="./assets/logo.png">
   </div>
 </template>
 
@@ -15,6 +15,23 @@ import * as SurveyVue from 'survey-vue'
 import 'bootstrap/dist/css/bootstrap.css';
 var Survey = SurveyVue.Survey
 Survey.cssType = "bootstrap";
+
+import * as widgets from "surveyjs-widgets";
+import "inputmask/dist/inputmask/phone-codes/phone.js";
+
+widgets.icheck(SurveyVue);
+widgets.select2(SurveyVue);
+widgets.imagepicker(SurveyVue);
+widgets.inputmask(SurveyVue);
+widgets.jquerybarrating(SurveyVue);
+widgets.jqueryuidatepicker(SurveyVue);
+widgets.nouislider(SurveyVue);
+widgets.select2tagbox(SurveyVue);
+widgets.signaturepad(SurveyVue);
+widgets.sortablejs(SurveyVue);
+widgets.ckeditor(SurveyVue);
+widgets.autocomplete(SurveyVue);
+widgets.bootstrapslider(SurveyVue);
 
 export default {
   name: 'app',
