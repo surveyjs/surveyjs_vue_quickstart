@@ -21,7 +21,6 @@ import "inputmask/dist/inputmask/phone-codes/phone.js";
 
 widgets.icheck(SurveyVue);
 widgets.select2(SurveyVue);
-widgets.imagepicker(SurveyVue);
 widgets.inputmask(SurveyVue);
 widgets.jquerybarrating(SurveyVue);
 widgets.jqueryuidatepicker(SurveyVue);
