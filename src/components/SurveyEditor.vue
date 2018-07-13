@@ -13,7 +13,6 @@ import "inputmask/dist/inputmask/phone-codes/phone.js";
 
 widgets.icheck(SurveyKo);
 widgets.select2(SurveyKo);
-widgets.imagepicker(SurveyKo);
 widgets.inputmask(SurveyKo);
 widgets.jquerybarrating(SurveyKo);
 widgets.jqueryuidatepicker(SurveyKo);
