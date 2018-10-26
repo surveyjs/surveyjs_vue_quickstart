@@ -1,86 +1,80 @@
 # VueJS + SurveyJS/SurveyJS_Editor QuickStart Source
 [![Build Status][travis-badge]][travis-badge-url]
 
-This repository holds the source code of the [survey.io quickstart with Vue](https://surveyjs.io/) 
-and potentially a good starting point for your application.
+## How to run this sample application
+ - git clone https://github.com/surveyjs/surveyjs_vue_quickstart.git
+ - cd surveyjs_vue_quickstart
+ - npm i
+ - npm run dev
+ - open http://localhost:8080/ in your web browser
 
-It's been extended with testing support so you can start writing tests immediately.
 
-## Prerequisites
+For detailed explanation on how VueJS things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
-Node.js and npm are essential to Angular and SurveyJS development. 
+## Add survey component on your page
+```JavaScript
+<template>
+  <div id="app">
+    <img src="./assets/logo.png">
+    <!-- If you want to show survey, uncomment the line below -->
+    <!-- <survey :survey="survey"></survey> -->
+    <!-- If you want to show survey editor, uncomment the line below -->
+    <!-- <survey-editor></survey-editor> -->
+    <survey-editor></survey-editor>
+  </div>
+</template>
+
+<script>
+//In your VueJS App.vue or yourComponent.vue file add these lines to import
+import SurveyEditor from './components/SurveyEditor'
+import * as SurveyVue from 'survey-vue'
+import 'bootstrap/dist/css/bootstrap.css';
+
+var Survey = SurveyVue.Survey
+Survey.cssType = "bootstrap";
+
+//If you want to add custom widgets package
+//Add these imports
+import * as widgets from "surveyjs-widgets";
+import "inputmask/dist/inputmask/phone-codes/phone.js";
+//And initialize widgets you are want ti use
+widgets.icheck(SurveyVue);
+widgets.select2(SurveyVue);
+widgets.inputmask(SurveyVue);
+widgets.jquerybarrating(SurveyVue);
+widgets.jqueryuidatepicker(SurveyVue);
+widgets.nouislider(SurveyVue);
+widgets.select2tagbox(SurveyVue);
+widgets.signaturepad(SurveyVue);
+widgets.sortablejs(SurveyVue);
+widgets.ckeditor(SurveyVue);
+widgets.autocomplete(SurveyVue);
+widgets.bootstrapslider(SurveyVue);
+
+export default {
+  name: 'app',
+  components: {
+    Survey,
+    SurveyEditor
+  },
+  data () {
+    //Define Survey JSON
+    //Here is the simplest Survey with one text question
+    var json = {
+     elements: [
+      { type: "text", name: "customerName", title: "What is your name?", isRequired: true}
+     ]
+    };
     
-<a href="https://docs.npmjs.com/getting-started/installing-node" target="_blank" title="Installing Node.js and updating npm">
-Get it now</a> if it's not already installed on your machine.
- 
-**Verify that you are running at least node `v4.x.x` and npm `3.x.x`**
-by running `node -v` and `npm -v` in a terminal/console window.
-Older versions produce errors.
+    //Create the model and pass it into VueSJ Survey component
+    var model = new SurveyVue.Model(json)
+    //You may set model properties
+    // model.mode="display"
 
-We recommend [nvm](https://github.com/creationix/nvm) for managing multiple versions of node and npm.
-
-## Create a new project based on the QuickStart
-
-Clone this repo into new project folder (e.g., `my-proj`).
-```shell
-git clone https://github.com/surveyjs/surveyjs_vue_quickstart my-proj
-cd my-proj
+    return {
+        survey: model
+    }
+  }
+}
+</script>
 ```
-
-## Install npm packages
-
-> See npm and nvm version notes above
-
-Install the npm packages described in the `package.json` and verify that it works:
-
-```shell
-npm install
-npm start
-```
-
->Doesn't work in _Bash for Windows_ which does not support servers as of January, 2017.
-
-The `npm start` command first compiles the application, 
-then simultaneously re-compiles and runs the server.
-Both the compiler and the server watch for file changes.
-
-Shut it down manually with `Ctrl-C`.
-
-You're ready to write your application.
-
-## npm scripts
-
-We've captured many of the most useful commands in npm scripts defined in the `package.json`:
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-Runs the app in the development mode.<br>
-Open [http://localhost:8080](http://localhost:8080) to view it in the browser.
-
-The page will reload if you make edits.
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
-```
-
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
-
-[travis-badge]: https://travis-ci.org/sueveyjs/surveyjs_vue_quickstart.svg?branch=master
-[travis-badge-url]: https://travis-ci.org/sueveyjs/surveyjs_vue_quickstart
