@@ -1,10 +1,10 @@
 <template>
-<div id="surveyEditorContainer"></div>
+  <div id="surveyCreatorContainer"></div>
 </template>
 
 <script>
-import * as SurveyEditor from 'surveyjs-editor'
-import 'surveyjs-editor/surveyeditor.css';
+import * as SurveyCreator from "survey-cretor";
+import "surveyjs-creator/survey-creator.css";
 
 import * as SurveyKo from "survey-knockout";
 import * as widgets from "surveyjs-widgets";
@@ -25,19 +25,21 @@ widgets.autocomplete(SurveyKo);
 widgets.bootstrapslider(SurveyKo);
 
 export default {
-  name: 'survey-editor',
-  data () {
-    return {
-    }
+  name: "survey-creator",
+  data() {
+    return {};
   },
-  mounted () {
-    let editorOptions = { showEmbededSurveyTab: true };
-    this.editor = new SurveyEditor.SurveyEditor('surveyEditorContainer', editorOptions);
-    this.editor.saveSurveyFunc = function() {
+  mounted() {
+    let options = { showEmbededSurveyTab: true };
+    this.surveyCreator = new SurveyCreator.SurveyCreator(
+      "surveyCreatorContainer",
+      options
+    );
+    this.surveyCreator.saveSurveyFunc = function() {
       console.log(JSON.stringify(this.text));
     };
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

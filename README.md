@@ -1,4 +1,4 @@
-# VueJS + SurveyJS/SurveyJS_Editor QuickStart Source
+# SurveyJS: Survey Library and Survey Creator, VueJS QuickStart Source
 [![Build Status][travis-badge]][travis-badge-url]
 
 ## How to run this sample application
@@ -18,15 +18,14 @@ For detailed explanation on how VueJS things work, checkout the [guide](http://v
     <img src="./assets/logo.png">
     <!-- If you want to show survey, uncomment the line below -->
     <!-- <survey :survey="survey"></survey> -->
-    <!-- If you want to show survey editor, uncomment the line below -->
-    <!-- <survey-editor></survey-editor> -->
-    <survey-editor></survey-editor>
+    <!-- If you want to hide Survey Creator, comment the line below -->
+    <survey-creator></survey-creator>
   </div>
 </template>
 
 <script>
 //In your VueJS App.vue or yourComponent.vue file add these lines to import
-import SurveyEditor from './components/SurveyEditor'
+import SurveyCreator from './components/SurveyCreator'
 import * as SurveyVue from 'survey-vue'
 import 'bootstrap/dist/css/bootstrap.css';
 
@@ -55,7 +54,7 @@ export default {
   name: 'app',
   components: {
     Survey,
-    SurveyEditor
+    SurveyCreator
   },
   data () {
     //Define Survey JSON
