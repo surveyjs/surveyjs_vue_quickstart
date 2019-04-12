@@ -1,5 +1,4 @@
-# SurveyJS: Survey Library and Survey Creator, VueJS QuickStart Source
-[![Build Status][travis-badge]][travis-badge-url]
+# VueJS QuickStart Source - SurveyJS: Survey Library and Survey Creator
 
 ## How to run this sample application
  - git clone https://github.com/surveyjs/surveyjs_vue_quickstart.git
