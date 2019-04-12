@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import * as SurveyCreator from "survey-cretor";
+import * as SurveyCreator from "survey-creator";
 import "surveyjs-creator/survey-creator.css";
 
 import * as SurveyKo from "survey-knockout";
