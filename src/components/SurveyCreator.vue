@@ -8,6 +8,7 @@ import "survey-creator/survey-creator.css";
 
 import * as SurveyKo from "survey-knockout";
 import * as widgets from "surveyjs-widgets";
+import { init as customWidget } from "../customwidget";
 
 import "inputmask/dist/inputmask/phone-codes/phone.js";
 
@@ -23,6 +24,7 @@ widgets.sortablejs(SurveyKo);
 widgets.ckeditor(SurveyKo);
 widgets.autocomplete(SurveyKo);
 widgets.bootstrapslider(SurveyKo);
+customWidget(SurveyKo);
 
 export default {
   name: "survey-creator",

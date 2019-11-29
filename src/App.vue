@@ -18,6 +18,9 @@ Survey.cssType = "bootstrap";
 import * as widgets from "surveyjs-widgets";
 import "inputmask/dist/inputmask/phone-codes/phone.js";
 
+import { init as customWidget } from "./customwidget";
+
+
 widgets.icheck(SurveyVue);
 widgets.select2(SurveyVue);
 widgets.inputmask(SurveyVue);
@@ -30,6 +33,7 @@ widgets.sortablejs(SurveyVue);
 widgets.ckeditor(SurveyVue);
 widgets.autocomplete(SurveyVue);
 widgets.bootstrapslider(SurveyVue);
+customWidget(SurveyVue);
 
 export default {
   name: "app",
