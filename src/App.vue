@@ -11,6 +11,7 @@
 <script>
 import SurveyCreator from "./components/SurveyCreator";
 import * as SurveyVue from "survey-vue";
+import * as SurveyKo from "survey-knockout";
 import "bootstrap/dist/css/bootstrap.css";
 var Survey = SurveyVue.Survey;
 Survey.cssType = "bootstrap";
@@ -19,7 +20,6 @@ import * as widgets from "surveyjs-widgets";
 import "inputmask/dist/inputmask/phone-codes/phone.js";
 
 import { init as customWidget } from "./customwidget";
-
 
 widgets.icheck(SurveyVue);
 widgets.select2(SurveyVue);
@@ -34,6 +34,9 @@ widgets.ckeditor(SurveyVue);
 widgets.autocomplete(SurveyVue);
 widgets.bootstrapslider(SurveyVue);
 customWidget(SurveyVue);
+
+SurveyVue.Serializer.addProperty("question", "tag:number");
+SurveyKo.Serializer.addProperty("question", "tag:number");
 
 export default {
   name: "app",
