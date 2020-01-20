@@ -1,9 +1,14 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <!-- If you want to show survey, uncomment the line below -->
-    <!-- <survey :survey="survey"></survey> -->
-    <!-- If you want to hide Survey Creator, comment the line below -->
+    <!-- If you want to hide survey, comment the lines below -->
+    <h2>Survey Library:</h2>
+    <survey :survey="survey"></survey>
+    <!-- If you want to hide Survey PDF, comment the lines below -->
+    <h2>Survey PDF:</h2>
+    <button v-on:click="savePDF">Save PDF</button>
+    <!-- If you want to hide Survey Creator, comment the lines below -->
+    <h2>Survey Creator:</h2>
     <survey-creator></survey-creator>
   </div>
 </template>
@@ -11,6 +16,7 @@
 <script>
 import SurveyCreator from "./components/SurveyCreator";
 import * as SurveyVue from "survey-vue";
+import * as SurveyPDF from "survey-pdf";
 import * as SurveyKo from "survey-knockout";
 import "bootstrap/dist/css/bootstrap.css";
 var Survey = SurveyVue.Survey;
@@ -174,8 +180,14 @@ export default {
       ]
     };
     var model = new SurveyVue.Model(json);
+    var savePDF = function() {
+        var surveyPDF = new SurveyPDF.SurveyPDF(json);
+        surveyPDF.data = model.data;
+        surveyPDF.save();
+    };
     return {
-      survey: model
+      survey: model,
+      savePDF: savePDF
     };
   }
 };
