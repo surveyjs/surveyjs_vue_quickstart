@@ -14,11 +14,12 @@
   },
   "dependencies": {
     "bootstrap": "^3.3.7",
+    "ckeditor": "^4.11.4",
     "jquery": "^3.1.1",
-    "survey-vue": "^1.0.79",
-    "survey-pdf": "latest",
-    "survey-creator": "^1.0.79",
-    "surveyjs-widgets": "^1.0.79",
+    "survey-vue": "^1.5.17",
+    "survey-pdf": "^1.5.17",
+    "survey-creator": "^1.5.17",
+    "surveyjs-widgets": "^1.5.17",
     "vue": "^2.2.2"
   },
   "devDependencies": {
