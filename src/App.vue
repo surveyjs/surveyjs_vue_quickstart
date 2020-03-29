@@ -1,195 +1,81 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <!-- If you want to hide survey, comment the lines below -->
-    <h2>Survey Library:</h2>
-    <survey :survey="survey"></survey>
-    <!-- If you want to hide Survey PDF, comment the lines below -->
-    <h2>Survey PDF:</h2>
-    <button v-on:click="savePDF">Save PDF</button>
-    <!-- If you want to hide Survey Creator, comment the lines below -->
-    <h2>Survey Creator:</h2>
-    <survey-creator></survey-creator>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">SurveyJS + VueJS</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li>
+            <router-link to="/">Home</router-link>
+          </li>
+          <li>
+            <router-link to="/survey">Survey</router-link>
+          </li>
+          <li>
+            <router-link to="/creator">SurveyJS Creator</router-link>
+          </li>
+          <li>
+            <router-link to="/exportpdf">PDF Export</router-link>
+          </li>
+          <!-- <li>
+            <router-link to="/bar/baz">/bar/baz</router-link>
+          </li>
+          <li>
+            <router-link to="/a/b/c">/a/b/c</router-link>
+          </li>-->
+        </ul>
+      </div>
+    </nav>
+    <router-view class="view"></router-view>
   </div>
 </template>
 
 <script>
-import SurveyCreator from "./components/SurveyCreator";
-import * as SurveyVue from "survey-vue";
-import * as SurveyPDF from "survey-pdf";
-import * as SurveyKo from "survey-knockout";
+import Vue from "vue";
+import VueRouter from "vue-router";
+
 import "bootstrap/dist/css/bootstrap.css";
-var Survey = SurveyVue.Survey;
-Survey.cssType = "bootstrap";
 
-import * as widgets from "surveyjs-widgets";
-import "inputmask/dist/inputmask/phone-codes/phone.js";
+Vue.use(VueRouter);
 
-import { init as customWidget } from "./customwidget";
+const Home = () => import("./views/Home.vue");
+const Survey = () =>
+  import(/* webpackChunkName: "survey" */ "./views/Survey.vue");
+const Creator = () =>
+  import(/* webpackChunkName: "creator" */ "./views/Creator.vue");
+const ExportToPDF = () =>
+  import(/* webpackChunkName: "creator" */ "./views/ExportToPDF.vue");
 
-widgets.icheck(SurveyVue);
-widgets.select2(SurveyVue);
-widgets.inputmask(SurveyVue);
-widgets.jquerybarrating(SurveyVue);
-widgets.jqueryuidatepicker(SurveyVue);
-widgets.nouislider(SurveyVue);
-widgets.select2tagbox(SurveyVue);
-widgets.signaturepad(SurveyVue);
-widgets.sortablejs(SurveyVue);
-widgets.ckeditor(SurveyVue);
-widgets.autocomplete(SurveyVue);
-widgets.bootstrapslider(SurveyVue);
-customWidget(SurveyVue);
-
-SurveyVue.Serializer.addProperty("question", "tag:number");
-SurveyKo.Serializer.addProperty("question", "tag:number");
+const router = new VueRouter({
+  mode: "history",
+  base: __dirname,
+  routes: [
+    { path: "/", component: Home },
+    // Just use them normally in the route config
+    { path: "/survey", component: Survey },
+    // multiple parameters, `/` should not be encoded. The name is also important
+    // https://github.com/vuejs/vue-router/issues/2719
+    // { path: '/a/:tags*', name: 'tagged', component: () => new Promise(resolve => {
+    //   setTimeout(() => {
+    //     resolve({
+    //       template: `<div>
+    //         <h2>Lazy with params</h2>
+    //         <pre id="tagged-path">{{ $route.path }}</pre>
+    //       </div>`
+    //     })
+    //   }, 200)
+    // }) },
+    // Bar and Baz belong to the same root route
+    // and grouped in the same async chunk.
+    { path: "/creator", component: Creator },
+    { path: "/exportpdf", component: ExportToPDF }
+  ]
+});
 
 export default {
   name: "app",
-  components: {
-    Survey,
-    SurveyCreator
-  },
-  data() {
-    var json = {
-      title: "Product Feedback Survey Example",
-      showProgressBar: "top",
-      pages: [
-        {
-          questions: [
-            {
-              type: "matrix",
-              name: "Quality",
-              title:
-                "Please indicate if you agree or disagree with the following statements",
-              columns: [
-                {
-                  value: 1,
-                  text: "Strongly Disagree"
-                },
-                {
-                  value: 2,
-                  text: "Disagree"
-                },
-                {
-                  value: 3,
-                  text: "Neutral"
-                },
-                {
-                  value: 4,
-                  text: "Agree"
-                },
-                {
-                  value: 5,
-                  text: "Strongly Agree"
-                }
-              ],
-              rows: [
-                {
-                  value: "affordable",
-                  text: "Product is affordable"
-                },
-                {
-                  value: "does what it claims",
-                  text: "Product does what it claims"
-                },
-                {
-                  value: "better then others",
-                  text: "Product is better than other products on the market"
-                },
-                {
-                  value: "easy to use",
-                  text: "Product is easy to use"
-                }
-              ]
-            },
-            {
-              type: "rating",
-              name: "satisfaction",
-              title: "How satisfied are you with the Product?",
-              mininumRateDescription: "Not Satisfied",
-              maximumRateDescription: "Completely satisfied"
-            },
-            {
-              type: "rating",
-              name: "recommend friends",
-              visibleIf: "{satisfaction} > 3",
-              title:
-                "How likely are you to recommend the Product to a friend or co-worker?",
-              mininumRateDescription: "Will not recommend",
-              maximumRateDescription: "I will recommend"
-            },
-            {
-              type: "comment",
-              name: "suggestions",
-              title: "What would make you more satisfied with the Product?"
-            }
-          ]
-        },
-        {
-          questions: [
-            {
-              type: "radiogroup",
-              name: "price to competitors",
-              title: "Compared to our competitors, do you feel the Product is",
-              choices: [
-                "Less expensive",
-                "Priced about the same",
-                "More expensive",
-                "Not sure"
-              ]
-            },
-            {
-              type: "radiogroup",
-              name: "price",
-              title: "Do you feel our current price is merited by our product?",
-              choices: [
-                "correct|Yes, the price is about right",
-                "low|No, the price is too low for your product",
-                "high|No, the price is too high for your product"
-              ]
-            },
-            {
-              type: "multipletext",
-              name: "pricelimit",
-              title: "What is the... ",
-              items: [
-                {
-                  name: "mostamount",
-                  title:
-                    "Most amount you would every pay for a product like ours"
-                },
-                {
-                  name: "leastamount",
-                  title: "The least amount you would feel comfortable paying"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          questions: [
-            {
-              type: "text",
-              name: "email",
-              title:
-                'Thank you for taking our survey. Please enter your email address, then press the "Submit" button.'
-            }
-          ]
-        }
-      ]
-    };
-    var model = new SurveyVue.Model(json);
-    var savePDF = function() {
-        var surveyPDF = new SurveyPDF.SurveyPDF(json);
-        surveyPDF.data = model.data;
-        surveyPDF.save();
-    };
-    return {
-      survey: model,
-      savePDF: savePDF
-    };
-  }
+  router: router
 };
 </script>
 
