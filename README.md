@@ -43,7 +43,6 @@ widgets.jquerybarrating(SurveyVue);
 widgets.jqueryuidatepicker(SurveyVue);
 widgets.nouislider(SurveyVue);
 widgets.select2tagbox(SurveyVue);
-widgets.signaturepad(SurveyVue);
 widgets.sortablejs(SurveyVue);
 widgets.ckeditor(SurveyVue);
 widgets.autocomplete(SurveyVue);

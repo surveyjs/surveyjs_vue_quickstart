@@ -24,7 +24,6 @@ widgets.jquerybarrating(SurveyVue);
 widgets.jqueryuidatepicker(SurveyVue);
 widgets.nouislider(SurveyVue);
 widgets.select2tagbox(SurveyVue);
-widgets.signaturepad(SurveyVue);
 widgets.sortablejs(SurveyVue);
 widgets.ckeditor(SurveyVue);
 widgets.autocomplete(SurveyVue);
@@ -44,6 +43,14 @@ export default {
       pages: [
         {
           questions: [
+            {
+              name: "date",
+              type: "datepicker",
+              inputType: "date",
+              title: "Your favorite date:",
+              dateFormat: "mm/dd/yy",
+              isRequired: true
+            },
             {
               type: "matrix",
               name: "Quality",

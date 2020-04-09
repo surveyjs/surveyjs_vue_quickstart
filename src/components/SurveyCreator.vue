@@ -19,7 +19,6 @@ widgets.jquerybarrating(SurveyKo);
 widgets.jqueryuidatepicker(SurveyKo);
 widgets.nouislider(SurveyKo);
 widgets.select2tagbox(SurveyKo);
-widgets.signaturepad(SurveyKo);
 widgets.sortablejs(SurveyKo);
 widgets.ckeditor(SurveyKo);
 widgets.autocomplete(SurveyKo);
