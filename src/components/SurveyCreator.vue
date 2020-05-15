@@ -8,7 +8,7 @@ import "survey-creator/survey-creator.css";
 
 import * as SurveyKo from "survey-knockout";
 import * as widgets from "surveyjs-widgets";
-import { init as customWidget } from "../customwidget";
+import { init as customWidget } from "../components/customwidget";
 
 widgets.icheck(SurveyKo);
 widgets.select2(SurveyKo);
@@ -17,12 +17,13 @@ widgets.jquerybarrating(SurveyKo);
 widgets.jqueryuidatepicker(SurveyKo);
 widgets.nouislider(SurveyKo);
 widgets.select2tagbox(SurveyKo);
-widgets.signaturepad(SurveyKo);
 widgets.sortablejs(SurveyKo);
 widgets.ckeditor(SurveyKo);
 widgets.autocomplete(SurveyKo);
 widgets.bootstrapslider(SurveyKo);
 customWidget(SurveyKo);
+
+SurveyKo.Serializer.addProperty("question", "tag:number");
 
 var CkEditor_ModalEditor = {
   afterRender: function(modalEditor, htmlElement) {
