@@ -34,7 +34,7 @@ Survey.cssType = "bootstrap";
 //If you want to add custom widgets package
 //Add these imports
 import * as widgets from "surveyjs-widgets";
-import "inputmask/dist/inputmask/phone-codes/phone.js";
+
 //And initialize widgets you are want ti use
 widgets.icheck(SurveyVue);
 widgets.select2(SurveyVue);

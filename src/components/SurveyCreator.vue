@@ -10,8 +10,6 @@ import * as SurveyKo from "survey-knockout";
 import * as widgets from "surveyjs-widgets";
 import { init as customWidget } from "../customwidget";
 
-import "inputmask/dist/inputmask/phone-codes/phone.js";
-
 widgets.icheck(SurveyKo);
 widgets.select2(SurveyKo);
 widgets.inputmask(SurveyKo);
