@@ -16,7 +16,7 @@ import * as widgets from "surveyjs-widgets";
 
 import { init as customWidget } from "../components/customwidget";
 
-widgets.icheck(SurveyVue);
+// widgets.icheck(SurveyVue);
 widgets.select2(SurveyVue);
 widgets.inputmask(SurveyVue);
 widgets.jquerybarrating(SurveyVue);

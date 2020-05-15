@@ -23,7 +23,7 @@ Survey.cssType = "bootstrap";
 
 import * as widgets from "surveyjs-widgets";
 
-widgets.icheck(SurveyVue);
+// widgets.icheck(SurveyVue);
 widgets.select2(SurveyVue);
 widgets.inputmask(SurveyVue);
 widgets.jquerybarrating(SurveyVue);

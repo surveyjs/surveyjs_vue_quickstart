@@ -10,7 +10,7 @@ import * as SurveyKo from "survey-knockout";
 import * as widgets from "surveyjs-widgets";
 import { init as customWidget } from "../components/customwidget";
 
-widgets.icheck(SurveyKo);
+// widgets.icheck(SurveyKo);
 widgets.select2(SurveyKo);
 widgets.inputmask(SurveyKo);
 widgets.jquerybarrating(SurveyKo);
