@@ -22,7 +22,6 @@ var Survey = SurveyVue.Survey;
 Survey.cssType = "bootstrap";
 
 import * as widgets from "surveyjs-widgets";
-import "inputmask/dist/inputmask/phone-codes/phone.js";
 
 widgets.icheck(SurveyVue);
 widgets.select2(SurveyVue);
