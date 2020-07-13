@@ -18,6 +18,9 @@
           <li>
             <router-link to="/exportpdf">PDF Export</router-link>
           </li>
+          <li>
+            <router-link to="/analytics">Analytics</router-link>
+          </li>
           <!-- <li>
             <router-link to="/bar/baz">/bar/baz</router-link>
           </li>
@@ -46,6 +49,8 @@ const Creator = () =>
   import(/* webpackChunkName: "creator" */ "./views/Creator.vue");
 const ExportToPDF = () =>
   import(/* webpackChunkName: "creator" */ "./views/ExportToPDF.vue");
+const Analytics = () =>
+  import(/* webpackChunkName: "creator" */ "./views/Analytics.vue");
 
 const router = new VueRouter({
   mode: "history",
@@ -69,7 +74,8 @@ const router = new VueRouter({
     // Bar and Baz belong to the same root route
     // and grouped in the same async chunk.
     { path: "/creator", component: Creator },
-    { path: "/exportpdf", component: ExportToPDF }
+    { path: "/exportpdf", component: ExportToPDF },
+    { path: "/analytics", component: Analytics }
   ]
 });
 
