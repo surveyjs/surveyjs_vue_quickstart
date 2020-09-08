@@ -21,6 +21,14 @@
           <li>
             <router-link to="/analytics">Analytics</router-link>
           </li>
+          <li>
+            <router-link to="/analyticstabulator">Results Table</router-link>
+          </li>
+          <li>
+            <router-link to="/analyticsdatatables"
+              >Results Table (IE Support)</router-link
+            >
+          </li>
           <!-- <li>
             <router-link to="/bar/baz">/bar/baz</router-link>
           </li>
@@ -51,6 +59,10 @@ const ExportToPDF = () =>
   import(/* webpackChunkName: "creator" */ "./views/ExportToPDF.vue");
 const Analytics = () =>
   import(/* webpackChunkName: "creator" */ "./views/Analytics.vue");
+const AnalyticsTabulator = () =>
+  import(/* webpackChunkName: "creator" */ "./views/AnalyticsTabulator.vue");
+const AnalyticsDatatables = () =>
+  import(/* webpackChunkName: "creator" */ "./views/AnalyticsDatatables.vue");
 
 const router = new VueRouter({
   mode: "history",
@@ -75,13 +87,15 @@ const router = new VueRouter({
     // and grouped in the same async chunk.
     { path: "/creator", component: Creator },
     { path: "/exportpdf", component: ExportToPDF },
-    { path: "/analytics", component: Analytics }
-  ]
+    { path: "/analytics", component: Analytics },
+    { path: "/analyticstabulator", component: AnalyticsTabulator },
+    { path: "/analyticsdatatables", component: AnalyticsDatatables },
+  ],
 });
 
 export default {
   name: "app",
-  router: router
+  router: router,
 };
 </script>
 
