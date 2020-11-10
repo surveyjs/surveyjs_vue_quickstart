@@ -8,6 +8,9 @@ function resolve (dir) {
 }
 
 module.exports = {
+  node: {
+    fs: "empty"
+  },
   entry: {
     app: './src/main.js'
   },
