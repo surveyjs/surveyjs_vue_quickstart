@@ -8,7 +8,11 @@
 
 <script>
 import * as SurveyVue from "survey-vue";
+
+import "jspdf-autotable"
+
 import { Tabulator } from "survey-analytics/survey.analytics.tabulator";
+
 import { json, data } from "../data/analytics_data";
 
 import "survey-analytics/survey.analytics.tabulator.css";
