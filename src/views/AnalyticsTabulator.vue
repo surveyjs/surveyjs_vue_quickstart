@@ -18,6 +18,7 @@ import { json, data } from "../data/analytics_data";
 import "survey-analytics/survey.analytics.tabulator.css";
 import "tabulator-tables/dist/css/tabulator.min.css";
 
+/* eslint-disable vue/no-unused-components */
 export default {
   components: {
     SurveyVue,

@@ -23,6 +23,7 @@ export function init(Survey) {
         //property - it means that it will activated if a property of the existing question type is set to particular value, for example inputType = "date" 
         //type - you are changing the behaviour of entire question type. For example render radiogroup question differently, have a fancy radio buttons
         //customType - you are creating a new type, like in our example "textwithbutton"
+        // eslint-disable-next-line
         activatedByChanged: function (activatedBy) {
             //we do not need to check acticatedBy parameter, since we will use our widget for customType only
             //We are creating a new class and derived it from text question type. It means that text model (properties and fuctions) will be available to us
@@ -82,6 +83,7 @@ export function init(Survey) {
       
         },
         //Use it to destroy the widget. It is typically needed by jQuery widgets
+        // eslint-disable-next-line
         willUnmount: function (question, el) {
             //We do not need to clear anything in our simple example
             //Here is the example to destroy the image picker

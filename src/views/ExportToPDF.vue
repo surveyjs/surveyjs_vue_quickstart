@@ -37,6 +37,7 @@ widgets.bootstrapslider(SurveyVue);
 
 SurveyVue.Serializer.addProperty("question", "tag:number");
 
+/* eslint-disable vue/no-unused-components */
 export default {
   components: {
     Survey

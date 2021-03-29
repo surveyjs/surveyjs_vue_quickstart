@@ -23,6 +23,7 @@ import "datatables.net-rowgroup/js/dataTables.rowGroup.js";
 import "survey-analytics/survey.analytics.datatables.css";
 import "datatables.net-colreorder-dt/css/colReorder.dataTables.css";
 
+/* eslint-disable vue/no-unused-components */
 export default {
   components: {
     SurveyVue,
