@@ -25,24 +25,43 @@ customWidget(SurveyKo);
 
 SurveyKo.Serializer.addProperty("question", "tag:number");
 
+var CKEDITOR = window["CKEDITOR"];
+
 var CkEditor_ModalEditor = {
-  afterRender: function(modalEditor, htmlElement) {
-    var editor = window["CKEDITOR"].replace(htmlElement);
-    editor.on("change", function() {
-      modalEditor.editingValue = editor.getData();
-    });
-    editor.setData(modalEditor.editingValue);
-  },
-  destroy: function(modalEditor, htmlElement) {
-    var instance = window["CKEDITOR"].instances[htmlElement.id];
-    if (instance) {
-      instance.removeAllListeners();
-      window["CKEDITOR"].remove(instance);
+    afterRender: function (modalEditor, htmlElement) {
+        if (typeof CKEDITOR === "undefined") 
+            return;
+        var editor = CKEDITOR.replace(htmlElement);
+        var isUpdating = false;
+        editor.on("change", function () {
+            isUpdating = true;
+            modalEditor.editingValue = editor.getData();
+            isUpdating = false;
+        });
+        editor.setData(modalEditor.editingValue);
+        modalEditor.onValueUpdated = function (newValue) {
+            if (!isUpdating) {
+                editor.setData(newValue);
+            }
+        };
+    },
+    destroy: function (modalEditor, htmlElement) {
+        if (typeof CKEDITOR === "undefined") 
+            return;
+        var instance = CKEDITOR.instances[htmlElement.id];
+        if (instance) {
+            instance.removeAllListeners();
+            instance.destroy(true);
+            CKEDITOR.remove(instance);
+        }
     }
-  }
 };
 SurveyCreator.SurveyPropertyModalEditor.registerCustomWidget(
   "html",
+  CkEditor_ModalEditor
+);
+SurveyCreator.SurveyPropertyModalEditor.registerCustomWidget(
+  "text",
   CkEditor_ModalEditor
 );
 
