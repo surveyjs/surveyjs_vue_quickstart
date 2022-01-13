@@ -17,6 +17,13 @@ steps:
 
 - script: |
     npm install
-    set NODE_OPTIONS=--max_old_space_size=4096
+  displayName: 'npm install'
+
+- script: |
+    npm install -g increase-memory-limit
+    increase-memory-limit
+  displayName: 'increase memory limit'
+
+- script: |
     npm run build
-  displayName: 'npm install and build'
+  displayName: 'npm build'
