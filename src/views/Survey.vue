@@ -8,9 +8,10 @@
 
 <script>
 import * as SurveyVue from "survey-vue";
-import "bootstrap/dist/css/bootstrap.css";
+import "survey-vue/defaultV2.css";
+SurveyVue.StylesManager.applyTheme("defaultV2");
+
 var Survey = SurveyVue.Survey;
-Survey.cssType = "bootstrap";
 
 import * as widgets from "surveyjs-widgets";
 

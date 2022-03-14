@@ -3,67 +3,31 @@
 </template>
 
 <script>
-import * as SurveyCreator from "survey-creator";
-import "survey-creator/survey-creator.css";
+import * as SurveyCreator from "survey-creator-knockout";
 
-import * as SurveyKo from "survey-knockout";
+
+import * as Survey from "survey-core";
 import * as widgets from "surveyjs-widgets";
 import { init as customWidget } from "../components/customwidget";
 
-// widgets.icheck(SurveyKo);
-widgets.select2(SurveyKo);
-widgets.inputmask(SurveyKo);
-widgets.jquerybarrating(SurveyKo);
-widgets.jqueryuidatepicker(SurveyKo);
-widgets.nouislider(SurveyKo);
-widgets.select2tagbox(SurveyKo);
-widgets.sortablejs(SurveyKo);
-widgets.ckeditor(SurveyKo);
-widgets.autocomplete(SurveyKo);
-widgets.bootstrapslider(SurveyKo);
-customWidget(SurveyKo);
+import "survey-core/defaultV2.css";
+import "survey-creator-core/survey-creator-core.css";
 
-SurveyKo.Serializer.addProperty("question", "tag:number");
 
-var CKEDITOR = window["CKEDITOR"];
+// widgets.icheck(Survey);
+widgets.select2(Survey);
+widgets.inputmask(Survey);
+widgets.jquerybarrating(Survey);
+widgets.jqueryuidatepicker(Survey);
+widgets.nouislider(Survey);
+widgets.select2tagbox(Survey);
+widgets.sortablejs(Survey);
+widgets.ckeditor(Survey);
+widgets.autocomplete(Survey);
+widgets.bootstrapslider(Survey);
+customWidget(Survey);
 
-var CkEditor_ModalEditor = {
-    afterRender: function (modalEditor, htmlElement) {
-        if (typeof CKEDITOR === "undefined") 
-            return;
-        var editor = CKEDITOR.replace(htmlElement);
-        var isUpdating = false;
-        editor.on("change", function () {
-            isUpdating = true;
-            modalEditor.editingValue = editor.getData();
-            isUpdating = false;
-        });
-        editor.setData(modalEditor.editingValue);
-        modalEditor.onValueUpdated = function (newValue) {
-            if (!isUpdating) {
-                editor.setData(newValue);
-            }
-        };
-    },
-    destroy: function (modalEditor, htmlElement) {
-        if (typeof CKEDITOR === "undefined") 
-            return;
-        var instance = CKEDITOR.instances[htmlElement.id];
-        if (instance) {
-            instance.removeAllListeners();
-            instance.destroy(true);
-            CKEDITOR.remove(instance);
-        }
-    }
-};
-SurveyCreator.SurveyPropertyModalEditor.registerCustomWidget(
-  "html",
-  CkEditor_ModalEditor
-);
-SurveyCreator.SurveyPropertyModalEditor.registerCustomWidget(
-  "text",
-  CkEditor_ModalEditor
-);
+Survey.Serializer.addProperty("question", "tag:number");
 
 export default {
   name: "survey-creator",
@@ -71,14 +35,12 @@ export default {
     return {};
   },
   mounted() {
-    let options = { showEmbededSurveyTab: true };
-    this.surveyCreator = new SurveyCreator.SurveyCreator(
-      "surveyCreatorContainer",
-      options
-    );
-    this.surveyCreator.saveSurveyFunc = function() {
+    const options = { showLogicTab: true };
+    this.creator = new SurveyCreator.SurveyCreator(options);
+    this.creator.saveSurveyFunc = function() {
       console.log(JSON.stringify(this.text));
     };
+    this.creator.render("surveyCreatorContainer");
   }
 };
 </script>
