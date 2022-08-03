@@ -1,46 +1,36 @@
 <template>
-  <div class="container">
-    <h2>Results Table - display survey results in the table form</h2>
-    <span>Uses Tabulator. Supports modern browsers.</span>
+  <div>
+    <h1>Survey Analytics - Table View</h1>
+    <span>Uses Tabulator supported only by modern browsers.</span>
     <div id="tableContainer"></div>
   </div>
 </template>
 
 <script>
-import * as SurveyVue from "survey-vue";
-
+import { Model } from "survey-vue";
 import "jspdf-autotable"
+import jsPDF from "jspdf";
+import * as XLSX from "xlsx";
+
+window.jsPDF = jsPDF;
+window.XLSX = XLSX;
 
 import { Tabulator } from "survey-analytics/survey.analytics.tabulator";
 
 import { json, data } from "../data/analytics_data";
 
-import "survey-analytics/survey.analytics.tabulator.css";
+import "survey-analytics/survey.analytics.tabulator.min.css";
 import "tabulator-tables/dist/css/tabulator.min.css";
 
-/* eslint-disable vue/no-unused-components */
 export default {
-  components: {
-    SurveyVue,
-  },
-
   data() {
-    const survey = new SurveyVue.Model(json);
-    return { survey, data };
+    const survey = new Model(json);
+    return { survey };
   },
 
   mounted() {
-    var surveyAnalyticsDataTables = new Tabulator(this.survey, this.data);
-    surveyAnalyticsDataTables.render(document.getElementById("tableContainer"));
+    const surveyAnalyticsTabulator = new Tabulator(this.survey, data);
+    surveyAnalyticsTabulator.render(document.getElementById("tableContainer"));
   },
 };
 </script>
-
-<style>
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
-}
-</style>
