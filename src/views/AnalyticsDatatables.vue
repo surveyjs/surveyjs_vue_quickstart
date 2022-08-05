@@ -1,13 +1,13 @@
 <template>
-  <div class="container">
-    <h2>Results Table - display survey results in the table form</h2>
-    <span>Uses Datatables. Browsers compatibility: IE10+ </span>
+  <div>
+    <h1>Survey Analytics - Table View (old browsers support)</h1>
+    <span>Uses DataTables (compatible with IE10+)</span>
     <div id="tableContainer"></div>
   </div>
 </template>
 
 <script>
-import * as SurveyVue from "survey-vue";
+import { Model } from "survey-vue";
 import { DataTables } from "survey-analytics/survey.analytics.datatables";
 import { json, data } from "../data/analytics_data";
 
@@ -20,33 +20,19 @@ import "datatables.net-buttons/js/buttons.html5.js";
 import "datatables.net-colreorder/js/dataTables.colReorder.js";
 import "datatables.net-rowgroup/js/dataTables.rowGroup.js";
 
-import "survey-analytics/survey.analytics.datatables.css";
+import "survey-analytics/survey.analytics.datatables.min.css";
 import "datatables.net-colreorder-dt/css/colReorder.dataTables.css";
 
-/* eslint-disable vue/no-unused-components */
 export default {
-  components: {
-    SurveyVue,
-  },
-
   data() {
-    const survey = new SurveyVue.Model(json);
-    return { survey, data };
+    const survey = new Model(json);
+    return { survey };
   },
 
   mounted() {
     DataTables.initJQuery($);
-    var surveyAnalyticsDataTables = new DataTables(this.survey, this.data);
+    const surveyAnalyticsDataTables = new DataTables(this.survey, data);
     surveyAnalyticsDataTables.render(document.getElementById("tableContainer"));
   },
 };
 </script>
-
-<style>
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
-}
-</style>

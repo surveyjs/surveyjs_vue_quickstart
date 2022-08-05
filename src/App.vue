@@ -3,7 +3,7 @@
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#">SurveyJS + VueJS</a>
+          <a class="navbar-brand" href="/">SurveyJS + Vue</a>
         </div>
         <ul class="nav navbar-nav">
           <li>
@@ -13,7 +13,7 @@
             <router-link to="/survey">Survey</router-link>
           </li>
           <li>
-            <router-link to="/creator">SurveyJS Creator</router-link>
+            <router-link to="/creator">Survey Creator</router-link>
           </li>
           <li>
             <router-link to="/exportpdf">PDF Export</router-link>
@@ -25,16 +25,8 @@
             <router-link to="/analyticstabulator">Results Table</router-link>
           </li>
           <li>
-            <router-link to="/analyticsdatatables"
-              >Results Table (IE Support)</router-link
-            >
+            <router-link to="/analyticsdatatables">Results Table (IE Support)</router-link>
           </li>
-          <!-- <li>
-            <router-link to="/bar/baz">/bar/baz</router-link>
-          </li>
-          <li>
-            <router-link to="/a/b/c">/a/b/c</router-link>
-          </li>-->
         </ul>
       </div>
     </nav>
@@ -83,8 +75,6 @@ const router = new VueRouter({
     //     })
     //   }, 200)
     // }) },
-    // Bar and Baz belong to the same root route
-    // and grouped in the same async chunk.
     { path: "/creator", component: Creator },
     { path: "/exportpdf", component: ExportToPDF },
     { path: "/analytics", component: Analytics },
@@ -105,5 +95,9 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
+}
+
+h1, h1+span {
+  padding: 0 20px;
 }
 </style>

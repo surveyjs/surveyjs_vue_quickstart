@@ -8,10 +8,9 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "core-js": "^3.6.5",
-    "vue": "^2.6.11",
     "bootstrap": "^3.3.7",
     "ckeditor": "^4.11.4",
+    "core-js": "^3.6.5",
     "jquery": "^3.1.1",
     "jspdf": "^2.3.0",
     "jspdf-autotable": "^3.0.10",
@@ -22,6 +21,7 @@
     "survey-pdf": "latest",
     "survey-vue": "latest",
     "surveyjs-widgets": "latest",
+    "vue": "^2.6.11",
     "vue-router": "^3.1.6",
     "xlsx": "^0.16.9"
   },

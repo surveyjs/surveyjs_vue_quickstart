@@ -3,27 +3,27 @@
     <div class="col-lg-3 centered">
       <img src="../assets/logo.png" />
     </div>
+    <h1>SurveyJS + Vue Quickstart Template</h1>
     <div class="col-lg-9 jumbotron">
-      <h1>SurveyJS + VueJS bolierplate</h1>
       <p>
-        We have been developing and supporting our library for several years. We helped hundreds of companies across many industries. We carefully reviewed every survey and form from our customerscustomers to add the necessary functionality that covers all the popular scenarios.
-        We are confident, that you can build almost everything, that popular cloud services offer, using SurveyJS library. You can extend our SurveyJS Library and change its behavior.
+        SurveyJS is a set of JavaScript components that allow you and your users to build surveys / forms, store them in your database, and visualize survey results for data analysis. This quick start template uses the following SurveyJS components:
       </p>
+      <ul>
+        <li><a href="https://surveyjs.io/Documentation/Library?id=LibraryOverview" target="_blank">SurveyJS Library / Runner</a></li>
+        <li><a href="https://surveyjs.io/Documentation/Survey-Creator?id=Survey-Creator-Overview" target="_blank">Survey Creator / Form Builder</a></li>
+        <li><a href="https://surveyjs.io/Documentation/Pdf-Export?id=PdfExportOverview" target="_blank">PDF Export</a></li>
+        <li><a href="https://surveyjs.io/Documentation/Analytics?id=AnalyticsOverview" target="_blank">Survey Analytics</a></li>
+      </ul>
     </div>
   </div>
 </template>
 
 <script>
-import "bootstrap/dist/css/bootstrap.css";
-
-export default {};
+export default { };
 </script>
 
 <style>
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
+.jumbotron ul {
+  font-size: 21px;
 }
 </style>
