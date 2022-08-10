@@ -43,6 +43,6 @@ export default {
 <style>
 #surveyCreatorContainer {
   height: calc(100vh - 125px);
-  width: (100vw - 16px);
+  width: 100vw;
 }
 </style>
