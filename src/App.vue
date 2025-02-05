@@ -3,7 +3,7 @@
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="/">SurveyJS + Vue</a>
+          <a class="navbar-brand" href="/">SurveyJS + Vue 2</a>
         </div>
         <ul class="nav navbar-nav">
           <li>
@@ -23,9 +23,6 @@
           </li>
           <li>
             <router-link to="/analyticstabulator">Results Table</router-link>
-          </li>
-          <li>
-            <router-link to="/analyticsdatatables">Results Table (IE Support)</router-link>
           </li>
         </ul>
       </div>
@@ -53,8 +50,6 @@ const Analytics = () =>
   import(/* webpackChunkName: "creator" */ "./views/Analytics.vue");
 const AnalyticsTabulator = () =>
   import(/* webpackChunkName: "creator" */ "./views/AnalyticsTabulator.vue");
-const AnalyticsDatatables = () =>
-  import(/* webpackChunkName: "creator" */ "./views/AnalyticsDatatables.vue");
 
 const router = new VueRouter({
   mode: "history",
@@ -78,8 +73,7 @@ const router = new VueRouter({
     { path: "/creator", component: Creator },
     { path: "/exportpdf", component: ExportToPDF },
     { path: "/analytics", component: Analytics },
-    { path: "/analyticstabulator", component: AnalyticsTabulator },
-    { path: "/analyticsdatatables", component: AnalyticsDatatables },
+    { path: "/analyticstabulator", component: AnalyticsTabulator }
   ],
 });
 

@@ -20,7 +20,6 @@
     "survey-creator-knockout": "latest",
     "survey-pdf": "latest",
     "survey-vue": "latest",
-    "surveyjs-widgets": "latest",
     "vue": "^2.6.11",
     "vue-router": "^3.1.6",
     "xlsx": "^0.16.9"
