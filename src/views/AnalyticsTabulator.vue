@@ -1,7 +1,6 @@
 <template>
   <div>
     <h1>Survey Analytics - Table View</h1>
-    <span>Uses Tabulator supported only by modern browsers.</span>
     <div id="tableContainer"></div>
   </div>
 </template>

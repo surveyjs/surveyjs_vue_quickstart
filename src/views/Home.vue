@@ -3,7 +3,7 @@
     <div class="col-lg-3 centered">
       <img src="../assets/logo.png" />
     </div>
-    <h1>SurveyJS + Vue Quickstart Template</h1>
+    <h1>SurveyJS + Vue 2 Quickstart Template</h1>
     <div class="col-lg-9 jumbotron">
       <p>
         SurveyJS is a set of JavaScript components that allow you and your users to build surveys / forms, store them in your database, and visualize survey results for data analysis. This quick start template uses the following SurveyJS components:
